@@ -156,6 +156,7 @@ textarea{resize:none;line-height:1.5}
       <div class="fg"><label class="lbl">Senha do personal</label><input type="password" id="l-senha" placeholder="Digite sua senha"></div>
       <div class="login-err" id="l-err-personal">Senha incorreta</div>
       <button class="btn btn-acc btn-full" onclick="loginPersonal()">Entrar</button>
+      <div style="font-size:11px;color:var(--text3);text-align:center;margin-top:10px">Senha padrão: <span style="color:var(--accent)">personal123</span></div>
     </div>
     <div id="login-aluno-form" style="display:none">
       <div class="fg"><label class="lbl">Seu código de acesso</label><input type="text" id="l-codigo" placeholder="Ex: joao123" autocomplete="off" autocapitalize="none"></div>
@@ -200,11 +201,6 @@ textarea{resize:none;line-height:1.5}
       <div class="shdr"><span class="stitle">Resumo</span></div>
       <div class="stat2" id="res-stats"></div>
       <div id="res-lista"></div>
-    </div>
-    <!-- PERSONAL: Config -->
-    <div class="screen" id="sc-config">
-      <div class="shdr"><span class="stitle">Configurações</span></div>
-      <div id="config-content"></div>
     </div>
     <!-- PERSONAL: Financeiro -->
     <div class="screen" id="sc-financeiro">
@@ -263,7 +259,7 @@ textarea{resize:none;line-height:1.5}
     <div id="bloco-fixo">
       <div class="fr2">
         <div class="fg"><label class="lbl">Horário fixo</label>
-          <select id="a-hora"><option>05:00</option><option>05:30</option><option>06:00</option><option>06:30</option><option>07:00</option><option>07:30</option><option>08:00</option><option>08:30</option><option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>22:00</option><option>22:30</option></select>
+          <select id="a-hora"><option>05:00</option><option>06:00</option><option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>22:00</option></select>
         </div><div></div>
       </div>
       <div class="fg"><label class="lbl">Dias da semana</label>
@@ -298,7 +294,7 @@ textarea{resize:none;line-height:1.5}
     <div class="fr2">
       <div class="fg"><label class="lbl">Data</label><input type="date" id="au-data"></div>
       <div class="fg"><label class="lbl">Horário</label>
-        <select id="au-hora"><option>05:00</option><option>05:30</option><option>06:00</option><option>06:30</option><option>07:00</option><option>07:30</option><option>08:00</option><option>08:30</option><option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>22:00</option><option>22:30</option></select>
+        <select id="au-hora"><option>05:00</option><option>06:00</option><option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>22:00</option></select>
       </div>
     </div>
     <div class="fg"><label class="lbl">Status</label>
@@ -327,7 +323,7 @@ textarea{resize:none;line-height:1.5}
     <div class="fr2">
       <div class="fg"><label class="lbl">Nova data</label><input type="date" id="rg-data"></div>
       <div class="fg"><label class="lbl">Novo horário</label>
-        <select id="rg-hora"><option>05:00</option><option>05:30</option><option>06:00</option><option>06:30</option><option>07:00</option><option>07:30</option><option>08:00</option><option>08:30</option><option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>22:00</option><option>22:30</option></select>
+        <select id="rg-hora"><option>05:00</option><option>06:00</option><option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>22:00</option></select>
       </div>
     </div>
     <div class="sf">
@@ -344,7 +340,7 @@ textarea{resize:none;line-height:1.5}
     <div class="fg"><label class="lbl">Aluno</label><select id="ag-aluno"></select></div>
     <div class="fr2">
       <div class="fg"><label class="lbl">Horário</label>
-        <select id="ag-hora"><option>05:00</option><option>05:30</option><option>06:00</option><option>06:30</option><option>07:00</option><option>07:30</option><option>08:00</option><option>08:30</option><option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>22:00</option><option>22:30</option></select>
+        <select id="ag-hora"><option>05:00</option><option>06:00</option><option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>22:00</option></select>
       </div>
       <div class="fg"><label class="lbl">Status</label>
         <select id="ag-status"><option value="agendada">Agendada</option><option value="realizada">Realizada</option><option value="falta">Falta</option></select>
@@ -365,7 +361,7 @@ textarea{resize:none;line-height:1.5}
     <div id="aluno-ag-aviso"></div>
     <div class="fg"><label class="lbl">Data</label><input type="date" id="aluno-ag-data"></div>
     <div class="fg"><label class="lbl">Horário</label>
-      <select id="aluno-ag-hora"><option>05:00</option><option>05:30</option><option>06:00</option><option>06:30</option><option>07:00</option><option>07:30</option><option>08:00</option><option>08:30</option><option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>22:00</option><option>22:30</option></select>
+      <select id="aluno-ag-hora"><option>05:00</option><option>06:00</option><option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>22:00</option></select>
     </div>
     <div class="sf">
       <button class="btn btn-ghost" style="flex:1" onclick="closeSh('sh-aluno-agendar')">Cancelar</button>
@@ -383,7 +379,7 @@ textarea{resize:none;line-height:1.5}
     <div class="fr2">
       <div class="fg"><label class="lbl">Nova data</label><input type="date" id="aluno-rg-data"></div>
       <div class="fg"><label class="lbl">Novo horário</label>
-        <select id="aluno-rg-hora"><option>05:00</option><option>05:30</option><option>06:00</option><option>06:30</option><option>07:00</option><option>07:30</option><option>08:00</option><option>08:30</option><option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>22:00</option><option>22:30</option></select>
+        <select id="aluno-rg-hora"><option>05:00</option><option>06:00</option><option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>22:00</option></select>
       </div>
     </div>
     <div class="sf">
@@ -497,9 +493,7 @@ function switchLoginTab(t){
 
 function loginPersonal(){
   const s=document.getElementById('l-senha').value;
-  const senhaOk=localStorage.getItem('pp5_senha')||'personal123';
-  if(s===senhaOk||s==='personal123'){
-    SENHA_ATUAL=senhaOk;
+  if(s===SENHA_PERSONAL){
     modoAtual='personal';alunoLogado=null;
     document.getElementById('login-wrap').style.display='none';
     document.getElementById('app-main').style.display='flex';
@@ -561,10 +555,6 @@ function buildNavbar(modo){
       <button class="nb" id="nb-resumo" onclick="showScreen('resumo')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
         <span>Resumo</span>
-      </button>
-      <button class="nb" id="nb-config" onclick="showScreen('config');renderConfig()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-        <span>Config</span>
       </button>`;
   } else {
     nb.innerHTML=`
@@ -888,91 +878,6 @@ function renderFinanceiro(){
   document.getElementById('fin-lista').innerHTML=html;
 }
 
-/* ══ CONFIGURAÇÕES ══ */
-function renderConfig(){
-  const horariosAtivos=JSON.parse(localStorage.getItem('pp_horarios')||'null')||
-    ['05:00','05:30','06:00','06:30','07:00','07:30','08:00','08:30','09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','22:00','22:30'];
-  const todosHorarios=['05:00','05:30','06:00','06:30','07:00','07:30','08:00','08:30','09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','22:00','22:30'];
-  document.getElementById('config-content').innerHTML=`
-    <div class="card" style="margin-bottom:12px">
-      <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:14px">🔒 Trocar senha</div>
-      <div class="fg"><label class="lbl">Senha atual</label><input type="password" id="cfg-atual" placeholder="Senha atual"></div>
-      <div class="fg"><label class="lbl">Nova senha</label><input type="password" id="cfg-nova" placeholder="Mínimo 4 caracteres"></div>
-      <div class="fg"><label class="lbl">Confirmar nova senha</label><input type="password" id="cfg-conf" placeholder="Repita a nova senha"></div>
-      <div id="cfg-err" class="errb" style="display:none"></div>
-      <button class="btn btn-acc btn-full" onclick="trocarSenha()">Salvar nova senha</button>
-    </div>
-    <div class="card">
-      <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px">⏰ Horários disponíveis</div>
-      <div style="font-size:12px;color:var(--text2);margin-bottom:12px">Selecione os horários que você tem livre para atender alunos.</div>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
-        ${todosHorarios.map(h=>`
-          <div onclick="toggleHorario(this,'${h}')" data-hora="${h}"
-            style="padding:8px 12px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;border:1.5px solid ${horariosAtivos.includes(h)?'rgba(62,207,142,.4)':'var(--border)'};background:${horariosAtivos.includes(h)?'rgba(62,207,142,.15)':'var(--bg3)'};color:${horariosAtivos.includes(h)?'var(--accent)':'var(--text2)'}">
-            ${h}
-          </div>`).join('')}
-      </div>
-      <button class="btn btn-acc btn-full" onclick="salvarHorarios()">Salvar horários</button>
-    </div>
-  `;
-}
-
-function toggleHorario(el,h){
-  const ativo=el.style.color.includes('accent')||el.style.color==='var(--accent)';
-  if(!ativo){
-    el.style.border='1.5px solid rgba(62,207,142,.4)';
-    el.style.background='rgba(62,207,142,.15)';
-    el.style.color='var(--accent)';
-  } else {
-    el.style.border='1.5px solid var(--border)';
-    el.style.background='var(--bg3)';
-    el.style.color='var(--text2)';
-  }
-}
-
-function salvarHorarios(){
-  const selecionados=[];
-  document.querySelectorAll('[data-hora]').forEach(el=>{
-    if(el.style.color==='var(--accent)'||el.style.background.includes('62,207')){
-      selecionados.push(el.dataset.hora);
-    }
-  });
-  if(!selecionados.length){toast('Selecione ao menos um horário','err');return;}
-  localStorage.setItem('pp_horarios',JSON.stringify(selecionados));
-  atualizarSelectsHorarios(selecionados);
-  toast('Horários salvos! ✓');
-}
-
-function atualizarSelectsHorarios(horarios){
-  const opts=horarios.map(h=>`<option>${h}</option>`).join('');
-  ['a-hora','au-hora','rg-hora','ag-hora','aluno-ag-hora','aluno-rg-hora'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el) el.innerHTML=opts;
-  });
-}
-
-let SENHA_ATUAL='personal123';
-function trocarSenha(){
-  const atual=document.getElementById('cfg-atual').value;
-  const nova=document.getElementById('cfg-nova').value;
-  const conf=document.getElementById('cfg-conf').value;
-  const err=document.getElementById('cfg-err');
-  err.style.display='none';
-  if(atual!==SENHA_ATUAL){err.textContent='Senha atual incorreta.';err.style.display='block';return;}
-  if(nova.length<4){err.textContent='Mínimo 4 caracteres.';err.style.display='block';return;}
-  if(nova!==conf){err.textContent='Senhas não coincidem.';err.style.display='block';return;}
-  SENHA_ATUAL=nova;
-  localStorage.setItem('pp5_senha',nova);
-  ['cfg-atual','cfg-nova','cfg-conf'].forEach(id=>document.getElementById(id).value='');
-  toast('Senha alterada! 🔒');
-}
-
-// Aplica horários salvos ao iniciar
-(function(){
-  const h=localStorage.getItem('pp_horarios');
-  if(h) setTimeout(()=>atualizarSelectsHorarios(JSON.parse(h)),500);
-})();
-
 /* ══ RESUMO ══ */
 function renderResumo(){
   const tR=aulas.filter(a=>a.status==='realizada').length;
@@ -1084,7 +989,9 @@ function renderAlunoAgendar(){
       <div class="fg"><label class="lbl">Data</label><input type="date" id="aluno-ag-data2" min="${new Date().toISOString().split('T')[0]}"></div>
       <div class="fg"><label class="lbl">Horário</label>
         <select id="aluno-ag-hora2">
-<option>05:00</option><option>05:30</option><option>06:00</option><option>06:30</option><option>07:00</option><option>07:30</option><option>08:00</option><option>08:30</option><option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>22:00</option>
+          <option>05:00</option><option>06:00</option><option>07:00</option><option>08:00</option>
+          <option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
+          <option>13:00</option><option>14:00</option><option>15:00</option><option>22:00</option>
         </select>
       </div>
       ${al.hora?`<div style="font-size:12px;color:var(--text3);margin-bottom:10px">💡 Seu horário fixo é ${al.hora}</div>`:''}

@@ -194,6 +194,12 @@ textarea{resize:none;line-height:1.5}
       </div>
       <div class="cal-grid" id="calgrid"></div>
       <div id="dia-info"></div>
+      <div style="margin-top:14px">
+        <button class="btn btn-ghost btn-full" onclick="exportarICS()" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:11px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Exportar para Google Agenda
+        </button>
+      </div>
     </div>
     <!-- PERSONAL: Resumo -->
     <div class="screen" id="sc-resumo">
@@ -1005,6 +1011,52 @@ function trocarSenha(){
   const h=localStorage.getItem('pp_horarios');
   if(h) setTimeout(()=>atualizarSelectsHorarios(JSON.parse(h)),500);
 })();
+
+function exportarICS(){
+  const aulasAgendadas=aulas.filter(a=>a.status==='agendada'||a.status==='realizada');
+  if(!aulasAgendadas.length){toast('Nenhuma aula para exportar','warn');return;}
+
+  const pad=n=>String(n).padStart(2,'0');
+  function toICSDate(dataStr,horaStr){
+    const [y,m,d]=dataStr.split('-');
+    const [h,min]=horaStr.split(':');
+    return `${y}${pad(m)}${pad(d)}T${pad(h)}${pad(min)}00`;
+  }
+  function toICSDateEnd(dataStr,horaStr){
+    const [y,m,d]=dataStr.split('-');
+    const [h,min]=horaStr.split(':');
+    const endH=parseInt(h)+1;
+    return `${y}${pad(m)}${pad(d)}T${pad(endH)}${pad(min)}00`;
+  }
+
+  let ics='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//PersonalPro//PT\r\nCALSCALE:GREGORIAN\r\n';
+
+  aulasAgendadas.forEach((au,i)=>{
+    const al=alunos.find(x=>x.id===au.alunoId);
+    const nome=al?al.nome:'Aluno';
+    const uid=`personalpro-${au.id}-${Date.now()+i}@personalpro`;
+    ics+=`BEGIN:VEVENT\r\n`;
+    ics+=`UID:${uid}\r\n`;
+    ics+=`DTSTART:${toICSDate(au.data,au.hora)}\r\n`;
+    ics+=`DTEND:${toICSDateEnd(au.data,au.hora)}\r\n`;
+    ics+=`SUMMARY:Treino — ${nome}\r\n`;
+    ics+=`DESCRIPTION:Aluno: ${nome}\\nHorário: ${au.hora}\\nStatus: ${au.status==='agendada'?'Agendado':'Realizado'}\r\n`;
+    ics+=`END:VEVENT\r\n`;
+  });
+
+  ics+='END:VCALENDAR';
+
+  const blob=new Blob([ics],{type:'text/calendar;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='PersonalPro_Aulas.ics';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast(`${aulasAgendadas.length} aulas exportadas! Abra o arquivo para importar no Google Agenda.`);
+}
 
 /* ══ RESUMO ══ */
 function renderResumo(){
